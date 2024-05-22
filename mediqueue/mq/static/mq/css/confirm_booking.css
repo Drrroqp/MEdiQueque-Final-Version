@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+    font-family: "Golos Text";
+}
+
+body{
+    background: linear-gradient(90deg, #67f6ee, #4d82b8);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    /* -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;*/
+}
+
+.form-section{
+    margin-top: 4rem;
+    height: auto;
+    width: auto;
+    background-color: #ffffff;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.form-section-complete{
+    margin-top: 10rem;
+    height: auto;
+    width: auto;
+    background-color: #ffffff;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.form-section-email{
+    margin-top: 4rem;
+    height: auto;
+    width: 50rem;
+    background-color: #ffffff;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.section-for-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-ok{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.booking-title{
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+.row1{
+    flex-direction: row;
+    display: flex;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitle-booking{
+    margin-top: 5rem;
+    font-weight: 700;
+    color: #9d9d9d;
+    font-size: 1.45rem;
+}
+
+
+.btn-domoi{
+    width: 16.5rem;
+    height: 4.5rem;
+    margin-top: 2rem;
+    color: black;
+    margin-bottom: 2rem;
+    border-radius: 133px;
+    border: 3px solid rgba(31, 186, 181, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1fbab5;
+    font-weight: 700;
+    font-size: 1.6rem;
+    transition: 0.6s;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.btn-domoi:hover {
+    transform: scale(1.1);
+    background-color: #1fbab5;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.25);
+}
+
+.info-shablon{
+    font-weight: 700;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+}
+
+.info-django{
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #01d9df;
+    padding: 0.6rem;
+}
+
+.email-title{
+    display: flex;
+    font-weight: 700;
+    padding: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+    word-break:normal;
+    
+}

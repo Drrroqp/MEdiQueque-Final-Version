@@ -1,0 +1,717 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link type="text/css" href="{% static 'mq/css/animate.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/modal.css' %}" rel="stylesheet" />
+    {% endblock %}
+    <script src="{% static 'mq/scripts/gsap.min.js' %}"></script>
+    <script src="{% static 'mq/scripts/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'mq/scripts/ScrollSmoother.min.js' %}"></script>
+    <script src="{% static 'mq/scripts/modal_scripts.js' %}"></script>
+    <title>Mediqueque</title>
+</head>
+
+<body class="body">
+    <!-- Шапка -->
+    <div class="wrapper">
+        <div class="content">
+            <main>
+                <section class="topnav" id="nav">
+                    <div class="navuphead">
+                        <div class="time">
+                            <div class="headerimg1 wow bounceInLeft">
+                                <img src="{% static 'mq/images/timeofwork.png' %}" alt="">
+                            </div>
+                            <div class="wow bounceInLeft textheader">Время работы: пн-пт: 9:00-21:00 сб-вс: 10:00-20:00
+                            </div>
+                        </div>
+                        <div class="geo">
+                            <div class="headerimg2 wow bounceInDown">
+                                <img src="{% static 'mq/images/geoposition.png' %}" alt="">
+                            </div>
+                            <div class="wow bounceInDown textheader">Адрес: ул.Букирева, 15</div>
+                        </div>
+                        <div class="phone">
+                            <div class="headerimg3 wow bounceInRight">
+                                <img src="{% static 'mq/images/telephone.png' %}" alt="">
+                            </div>
+                            <div class="wow bounceInRight textheader">Тел: +7 (999) 999 99 99</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="aboutcontainer wow fadeInUp">
+                    <div class="line">
+                        <div class="logo wow zoomIn">
+                            <img src="{% static 'mq/images/NewLogo.png' %}" class="logo" alt="">
+                            <h1 class="logo-bukvi">MediQueue</h1>
+                        </div>
+                        <div class="nav">
+                            <a class="nav-item" href="#nav">Главная страница</a>
+                            <a class="nav-item" href="#info">О клинике</a>
+                            <a class="nav-item" href="#slider-doc">Наши врачи</a>
+
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a href="{% url 'account' %}">{{ request.user.first_name }}</a> |
+                                <a href="{% url 'logout' %}">Выйти</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item" id="open-modal-btn-registration"><a href="{% url 'registration' %}">
+                                    <img src="{% static 'mq/images/registrat.png' %}" class="regicon">
+                                    Регистрация
+                                </a> <a href="{% url 'login' %}">
+                                    <img src="{% static 'mq/images/loggg.png' %}" class="regicon">
+                                    Вход
+                                </a>
+                            </li>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <div class="bottomnuv">
+                            <div class="woman wow fadeInLeft">
+                                <img src="{% static 'mq/images/woman.png' %}" class="people">
+                            </div>
+                            <div class="slide-info slick-slider-container">
+                                <div class="slick-slider">
+                                    <div>
+                                        <div class="textsettings">
+                                            <div class="titleinfo">О регистрации</div>
+                                            <div class="subtitleinfo">
+                                                Просим Вас оставлять корректные данные при регистрации. При посещении
+                                                врача Ваши
+                                                данные сверят с документом, удостоверяющим Вашу личность. При
+                                                несовпадении
+                                                данных Ваш визит будет отменен.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="textsettings">
+                                            <div class="titleinfo1">Дополнительные услуги</div>
+                                            <div class="subtitleinfo1">
+                                                Наши дополнительные медицинские услуги призваны дополнить и улучшить
+                                                бесплатные медицинские услуги, предоставляемые в соответствии с
+                                                законодательством.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Добавьте другие слайды здесь -->
+                                </div>
+                                <div class="slider-dots"></div>
+                            </div>
+                            <div class="zapis">
+                                {% if request.user.is_authenticated %}
+                                <div class="titlezapis1">Запись на приём к врачу</div>
+                                {% else %}
+                                <div class="titlezapis">Запись на приём к врачу</div>
+                                <div class="subtittlezapis">
+                                    <a class="registrationbtn" href="{% url 'registration' %}"
+                                        id="open-modal-btn-registration2">Зарегистрируйтесь</a>
+                                    на сайте или
+                                    <a href="{% url 'login' %}" class="registrationbtn"
+                                        id="open-modal-btn-login2">авторизуйтесь</a>
+                                    для возможности записаться.
+                                </div>
+                                {% endif %}
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'specialities' %}">
+                                    {% else %}
+                                    <a href="{% url 'login' %}">
+                                        {% endif %}
+                                        <button class="zapis-text wow pulse" id="open-modal-btn">
+                                            <img src="{% static 'mq/images/health.png' %}" class="health">Записаться
+                                            <img src="{% static 'mq/images/arrow-right.png' %}" class="arrow">
+                                        </button>
+                                    </a>
+                            </div>
+                            <div class="man wow fadeInRight">
+                                <img src="{% static 'mq/images/man.png' %}" class="people2">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="rowlbockinfo" id="info">
+                    <section class="columblockinfo1">
+                        <div data-speed="1.1" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Медицинские специализации и услуги</h1>
+                                <p class="subtitle-1">Мы предлагаем широкий спектр медицинских услуг, охватывающих
+                                    различные
+                                    специализации и
+                                    направления, чтобы удовлетворить потребности каждого нашего пациента.</p>
+                            </div>
+                        </div>
+                        <div data-speed="1.1" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Диагностические процедуры</h1>
+                                <p class="subtitle-1">Наши опытные специалисты проводят самые современные методы
+                                    диагностики,
+                                    чтобы
+                                    обеспечить точное и своевременное выявление заболеваний и состояния здоровья наших
+                                    пациентов.</p>
+                            </div>
+                        </div>
+                        <div data-speed="1.1" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Лечебные процедуры и терапии</h1>
+                                <p class="subtitle-1">Мы предлагаем эффективные и индивидуально подобранные лечебные
+                                    методы и
+                                    терапии,
+                                    направленные на восстановление здоровья и улучшение качества жизни наших пациентов.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="columblockinfo2">
+                        <div data-speed="1.2" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Профилактические программы и консультации</h1>
+                                <p class="subtitle-1"> Мы поддерживаем программы профилактики и предоставляем
+                                    консультации по
+                                    поддержанию
+                                    здоровья и предотвращению заболеваний, чтобы наши пациенты могли оставаться
+                                    здоровыми и
+                                    активными.
+                                </p>
+                            </div>
+                        </div>
+                        <div data-speed="1.2" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Условия приема и комфорт для пациентов</h1>
+                                <p class="subtitle-1">Мы создаем комфортные условия для наших пациентов, обеспечивая
+                                    удобный
+                                    график
+                                    работы,
+                                    простую процедуру записи на прием и заботливое отношение нашего персонала во время
+                                    каждого
+                                    визита.
+                                </p>
+                            </div>
+                        </div>
+                        <div data-speed="1.2" class="block-1">
+                            <div class="circle-1">
+                                <h1 class="tittle-1">Стоимость услуг и страховое обслуживание</h1>
+                                <p class="subtitle-1">Мы стремимся сделать наши услуги доступными для всех. Мы
+                                    предлагаем
+                                    информацию о
+                                    ценах
+                                    на услуги и работаем с различными страховыми планами, чтобы обеспечить финансовую
+                                    поддержку
+                                    нашим
+                                    пациентам.</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <h1 class="tittle-doctor-slider" id="slider-doc">Наши врачи</h1>
+
+                <section class="slider-doctors">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper wow fadeInUp">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="row-slide">
+                                    <div class="slide-ellipsee left">
+                                        <img src="{% static 'mq/images/slide2.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Терапевт</h1>
+                                        <h2 class="slide-subtext">Специалист первичного звена здравоохранения</h2>
+                                        <button class="btn-slide-info" id="open-modal-1">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee">
+                                        <img src="{% static 'mq/images/slide1.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Стоматолог</h1>
+                                        <h2 class="slide-subtext">Специалист в области здоровья полости рта</h2>
+                                        <button class="btn-slide-info" id="open-modal-2">Подробнее</button>
+
+                                    </div>
+                                    <div class="slide-ellipsee right">
+                                        <img src="{% static 'mq/images/slide3.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Психолог</h1>
+                                        <h2 class="slide-subtext">Специалист в области психического здоровья</h2>
+                                        <button class="btn-slide-info" id="open-modal-3">Подробнее</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="row-slide">
+                                    <div class="slide-ellipsee left">
+                                        <img src="{% static 'mq/images/slide4.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Гинеколог</h1>
+                                        <h2 class="slide-subtext">Женское здоровье и репродуктивная система</h2>
+                                        <button class="btn-slide-info" id="open-modal-4">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee">
+                                        <img src="{% static 'mq/images/slide5.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Кардиолог</h1>
+                                        <h2 class="slide-subtext">Специалист по заболеваниям сердца и сосудов</h2>
+                                        <button class="btn-slide-info" id="open-modal-5">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee right">
+                                        <img src="{% static 'mq/images/slide6.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Онколог</h1>
+                                        <h2 class="slide-subtext">Врач, специализирующийся на диагностике и лечении рака
+                                        </h2>
+                                        <button class="btn-slide-info" id="open-modal-6">Подробнее</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="row-slide">
+                                    <div class="slide-ellipsee left">
+                                        <img src="{% static 'mq/images/slide7.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Офтальмолог</h1>
+                                        <h2 class="slide-subtext">Лечит и диагностирует заболевания глаз</h2>
+                                        <button class="btn-slide-info" id="open-modal-7">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee">
+                                        <img src="{% static 'mq/images/slide8.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Уролог</h1>
+                                        <h2 class="slide-subtext">Мужское здоровье и репродуктивная система</h2>
+                                        <button class="btn-slide-info" id="open-modal-8">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee right">
+                                        <img src="{% static 'mq/images/slide9.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Диетолог</h1>
+                                        <h2 class="slide-subtext">Врач, имеющий подготовку по лечебному питанию.</h2>
+                                        <button class="btn-slide-info" id="open-modal-9">Подробнее</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="row-slide">
+                                    <div class="slide-ellipsee left">
+                                        <img src="{% static 'mq/images/slide10.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Невролог</h1>
+                                        <h2 class="slide-subtext">Занимается лечением заболеваний нервной системы</h2>
+                                        <button class="btn-slide-info" id="open-modal-10">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee">
+                                        <img src="{% static 'mq/images/slide11.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Дерматолог</h1>
+                                        <h2 class="slide-subtext">Специалист по кожным заболеваниям</h2>
+                                        <button class="btn-slide-info" id="open-modal-11">Подробнее</button>
+                                    </div>
+                                    <div class="slide-ellipsee right">
+                                        <img src="{% static 'mq/images/slide12.jpg' %}" class="slide-photo-set">
+                                        <h1 class="slide-text">Рентгенолог</h1>
+                                        <h2 class="slide-subtext">Диагностирует заболевания, используя рентген</h2>
+                                        <button class="btn-slide-info" id="open-modal-12">Подробнее</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-pagination wow fadeInUp"></div>
+
+
+                        <div class="swiper-button-prev wow fadeInUp"></div>
+                        <div class="swiper-button-next wow fadeInUp"></div>
+
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <section class="footer">
+            <div class="row-footer">
+                <div class="col-footer">
+                    <h1 class="footer-title-text">Поддержка</h1>
+                    <button class="footer-subtitle-text">+7 (999) 999 99 99</button>
+                    <button class="footer-subtitle-text">example@example.com</button>
+                </div>
+                <div class="col-footer">
+                    <h1 class="footer-title-text">Документы</h1>
+                    <button class="footer-subtitle-text">Политика конфиденциальности</button>
+                    <button class="footer-subtitle-text">Пользовательское соглашение</button>
+                    <button class="footer-subtitle-text">Условия оказания услуг</button>
+                </div>
+                <div class="col-footer">
+                    <h1 class="footer-title-text">Компания</h1>
+                    <button class="footer-subtitle-text">О компании</button>
+                    <button class="footer-subtitle-text">Карьера</button>
+                    <button class="footer-subtitle-text">Лицензии</button>
+                </div>
+                <div class="col-footer">
+                    <h1 class="footer-title-text">Прочее</h1>
+                    <button class="footer-subtitle-text">Возможности</button>
+                    <button class="footer-subtitle-text">Наши партнеры</button>
+                    <button class="footer-subtitle-text">Отзывы</button>
+                </div>
+            </div>
+            <div class="footer-line">
+                <a class="footer-logo" href="#nav">
+                    <img src="{% static 'mq/images/NewLogo.png' %}" class="logofooter" alt="">
+                </a>
+                <div class="copyright">©2024 “MediQueue”</div>
+                <div class="icons">
+                    <button class="icon-vk">
+                        <img src="{% static 'mq/images/logovk.png' %}" alt="">
+                    </button>
+                    <button class="icon-tg">
+                        <img src="{% static 'mq/images/logotg.png' %}" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Модальные окна информации про врачей -->
+    <div class="modal" id="my-modal-1">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-1">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide2.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Терапевт</h1>
+                <h2 class="slide-subtext-modal">Врач терапевт – это медицинский специалист, специализирующийся на
+                    диагностике, лечении и профилактике широкого спектра заболеваний, в основном связанных с внутренними
+                    органами и системами организма. Он обладает обширными знаниями о различных медицинских состояниях и
+                    методах их лечения.
+                    <br>Врач терапевт проводит общий медицинский осмотр пациентов, выявляет симптомы заболеваний,
+                    определяет необходимость проведения дополнительных обследований и назначает соответствующее лечение.
+                    <br>Он занимается лечением таких распространенных заболеваний, как грипп, ОРВИ, артрит, астма,
+                    диабет, гипертония и другие хронические и острые заболевания.
+                    <br>Врач терапевт также может оказывать первичную помощь при неотложных состояниях, проводить
+                    вакцинации, контролировать хронические заболевания и координировать лечение с другими специалистами.
+                </h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Голованов Владимир Иванович, Кабинет: 1, Стаж: 10 лет.
+                    <br>Рыбаков Михаил Владимирович, Кабинет: 2, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-2">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-2">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide1.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Стоматолог</h1>
+                <h2 class="slide-subtext-modal">Стоматолог – это медицинский специалист, который специализируется на
+                    диагностике, лечении и профилактике заболеваний полости рта, зубов и десен.
+                    <br>Он обладает знаниями о структуре и функциях зубов, челюстей и слизистой оболочки полости рта.
+                    <br>Стоматолог проводит различные процедуры, такие как пломбирование зубов, удаление зубов, лечение
+                    зубного кариеса, установка зубных протезов и проведение профилактических осмотров.
+                    <br>Он играет важную роль в поддержании здоровья полости рта и общего благополучия пациентов.
+                </h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Щербаков Ибрагил Тарасович, Кабинет: 3, Стаж: 10 лет.
+                    <br>Владимиров Венедикт Валерьянович, Кабинет: 4, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-3">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-3">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide3.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Психолог</h1>
+                <h2 class="slide-subtext-modal">Психолог – это специалист, изучающий человеческое поведение, мышление,
+                    эмоции и взаимоотношения.
+                    <br>Он помогает людям разрешать психологические проблемы, развивать личностный потенциал и улучшать
+                    качество жизни.
+                    <br>Психолог проводит консультации, тестирование и психотерапевтические сеансы, используя различные
+                    методики и подходы.
+                    <br>Его работа направлена на поддержку пациентов в решении конфликтов, преодолении стресса,
+                    депрессии, тревожности и других психологических проблем.
+                </h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Ефремов Ипполит Федотович, Кабинет: 5, Стаж: 10 лет.
+                    <br>Горбачёв Климент Митрофанович, Кабинет: 6, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-4">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-4">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide4.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Гинеколог</h1>
+                <h2 class="slide-subtext-modal">Гинеколог – это врач, специализирующийся на здоровье женщин, особенно на аспектах связанных с женской репродуктивной системой.
+                     <br>Он проводит осмотры, диагностику и лечение различных заболеваний и состояний, включая инфекции, опухоли, нарушения менструального цикла и бесплодие.
+                      <br>Гинеколог также занимается предотвращением и контролем беременности, проводит различные процедуры, такие как ультразвуковое исследование, колпоскопию и мазки на флору.
+                     <br>Его работа направлена на поддержание здоровья женщин в различных возрастных категориях и решение их медицинских проблем.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Молчанов Матвей Евсеевич, Кабинет: 7, Стаж: 10 лет.
+                    <br>Савельев Тарас Георгьевич, Кабинет: 8, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-5">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-5">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide5.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Кардиолог</h1>
+                <h2 class="slide-subtext-modal">Кардиолог – это врач, специализирующийся на диагностике, лечении и профилактике заболеваний сердечно-сосудистой системы.
+                     <br>Он обладает глубокими знаниями о функционировании сердца, сосудов и их связи с другими органами.
+                      <br>Кардиолог проводит обследования, такие как ЭКГ, УЗИ сердца, коронарографию, для выявления сердечных заболеваний и оценки состояния сердечно-сосудистой системы.
+                       <br>Он также разрабатывает индивидуальные программы лечения, назначает лекарства, рекомендует изменения в образе жизни и следит за состоянием пациентов на протяжении времени.
+                     <br>Работа кардиолога направлена на поддержание здоровья сердца и предотвращение сердечно-сосудистых заболеваний.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Савельев Адриан Семенович, Кабинет: 9, Стаж: 10 лет.
+                    <br>Яковлев Тимофей Дмитриевич, Кабинет: 10, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-6">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-6">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide6.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Онколог</h1>
+                <h2 class="slide-subtext-modal">Онколог – это врач, специализирующийся на диагностике, лечении и предупреждении раковых заболеваний. <br>Он обладает глубокими знаниями о различных типах рака, их стадиях развития и методах лечения. <br>Он проводит диагностические процедуры, такие как биопсия и обследование на медицинском оборудовании, для выявления раковых опухолей и оценки их характеристик. <br>Он также разрабатывает индивидуальные планы лечения, включая хирургическое вмешательство, химиотерапию, лучевую терапию и иммунотерапию, и осуществляет мониторинг состояния пациентов на протяжении всего лечения.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Баранов Родион Геннадьевич, Кабинет: 11, Стаж: 10 лет.
+                    <br>Корнилов Корнелий Эльдарович, Кабинет: 12, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-7">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-7">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide7.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Офтальмолог</h1>
+                <h2 class="slide-subtext-modal">Офтальмолог – это врач, специализирующийся на диагностике, лечении и профилактике заболеваний глаз и зрительной системы. <br>Он обладает глубокими знаниями о строении глаза, его функциях и возможных патологиях. <br>Офтальмолог проводит различные обследования, такие как осмотр глазного дна, измерение зрения, проверка давления внутри глаза, для выявления заболеваний и оценки состояния зрительной системы. <br>Он также выполняет различные процедуры, такие как операции на глазах, лазерная коррекция зрения и назначение лекарственных средств для лечения глазных заболеваний.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Сергеев Любомир Никитевич, Кабинет: 13, Стаж: 10 лет.
+                    <br>Молчанов Петр Авдеевич, Кабинет: 14, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-8">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-8">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide8.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Уролог</h1>
+                <h2 class="slide-subtext-modal">Уролог – это врач, специализирующийся на диагностике, лечении и профилактике заболеваний мочеполовой системы у мужчин и женщин. <br>Он обладает глубокими знаниями о структуре и функции почек, мочевого пузыря, мочеиспускательного канала, предстательной железы и других органов системы. <br>Уролог проводит различные процедуры и обследования, такие как ультразвуковое исследование почек, цистоскопия, анализы мочи, для выявления и оценки заболеваний. <br>Он также занимается лечением различных состояний, включая инфекции мочевыводящих путей, камни в почках и мочевом пузыре, рак мочевого пузыря и другие патологии.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Власов Давид Феликсович, Кабинет: 15, Стаж: 10 лет.
+                    <br>Бобылёв Анатолий Петрович, Кабинет: 16, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-9">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-9">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide9.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Диетолог</h1>
+                <h2 class="slide-subtext-modal">Диетолог – это специалист в области питания и здорового образа жизни, который помогает пациентам разрабатывать персонализированные диеты и планы питания. <br>Он обладает глубокими знаниями о питательных веществах, их воздействии на организм и связи с различными заболеваниями. <br>Диетолог проводит консультации с пациентами, анализирует их пищевые привычки, образ жизни и медицинскую историю для определения индивидуальных потребностей. <br>Он также разрабатывает рекомендации по составлению рационов, учитывая диетические ограничения, цели по потере веса, контроль глюкозы и другие медицинские показатели.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Алексеев Василий Миронович, Кабинет: 17, Стаж: 10 лет.
+                    <br>Сазонов Соломон Лаврентьевич, Кабинет: 18, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-10">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-10">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide10.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Невролог</h1>
+                <h2 class="slide-subtext-modal">Невролог – это врач, специализирующийся на диагностике, лечении и управлении заболеваниями нервной системы. <br>Он обладает глубокими знаниями о структуре и функционировании мозга, спинного мозга, нервов и мышц. <br>Невролог проводит обследования, такие как нейроимиджинг и электромиография, для диагностики различных неврологических заболеваний, таких как инсульт, болезнь Паркинсона, эпилепсия и мигрень. <br>Он также разрабатывает планы лечения, включая назначение лекарственных препаратов, физиотерапию и реабилитацию, для улучшения состояния пациентов и снижения симптомов и осложнений.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Иванов Эдуард Ярославович, Кабинет: 19, Стаж: 10 лет.
+                    <br>Харитонов Алексей Филиппович, Кабинет: 20, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-11">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-11">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide11.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Дерматолог</h1>
+                <h2 class="slide-subtext-modal">Дерматолог – это врач, специализирующийся на диагностике, лечении и профилактике заболеваний кожи, волос и ногтей. <br>Он обладает глубокими знаниями о строении кожи, ее функциях и возможных патологиях. <br>Дерматолог проводит осмотры кожи, диагностические процедуры, такие как биопсия и дерматоскопия, для выявления различных заболеваний и оценки их характеристик. <br>Он также предоставляет различные виды лечения, включая назначение лекарственных препаратов, процедуры лазерной терапии, химические пилинги и хирургическое удаление образований на коже.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Романов Елисей Денисович, Кабинет: 21, Стаж: 10 лет.
+                    <br>Носов Руслан Денисович, Кабинет: 22, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="my-modal-12">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn-12">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="modal-set">
+                <img src="{% static 'mq/images/slide12.jpg' %}" class="slide-photo-set-modal">
+                <h1 class="slide-text">Рентгенолог</h1>
+                <h2 class="slide-subtext-modal">
+                    Рентгенолог – это медицинский специалист, специализирующийся на использовании рентгеновского излучения для диагностики различных заболеваний и состояний. <br>Он обладает глубокими знаниями о принципах работы рентгеновской аппаратуры, анатомии человеческого тела и интерпретации рентгенологических изображений. <br>Рентгенолог проводит различные виды рентгенологических исследований, такие как рентгенография, компьютерная томография (КТ) и магнитно-резонансная томография (МРТ), для выявления патологий внутренних органов, костей и мягких тканей. <br>Он также сотрудничает с другими специалистами для определения дальнейших шагов в лечении пациентов и мониторинга эффективности терапии.</h2>
+                <h2 class="slide-subtext-modal-details-zagolovok">Наши специалисты:</h2>
+                <h2 class="slide-subtext-modal-details">Колесников Августин Иосифович, Кабинет: 23, Стаж: 10 лет.
+                    <br>Егоров Алексей Филатович, Кабинет: 24, Стаж: 1 год.
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: false,
+            keyboard: false,
+            speed: 1000,
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slick-slider').slick({
+                dots: true, // Включаем точки навигации
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'mq/scripts/index.js' %}"></script>
+    <script src="{% static 'mq/scripts/registration_scripts.js' %}"></script>
+    <script src="{% static 'mq/scripts/modal_scripts.js' %}"></script>
+    <script src="{% static 'mq/scripts/wow.min.js' %}"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>

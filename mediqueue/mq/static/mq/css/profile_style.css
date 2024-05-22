@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;*/
+    font-family: "Golos Text";
+}
+
+.body {
+    margin: 0px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    column-gap: 75rem;
+    background: linear-gradient(90deg, #63e7e7, #4d82b8);
+
+}
+.header-logo{
+    display: flex;
+}
+
+.header-logo-image{
+    transition: 0.6s;
+    height: 7rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-logo-image:hover{
+    transform: scale(1.15);
+}
+
+.header-logo-imagee{
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: 0.6s;
+}
+
+.header-logo-imagee:hover{
+    transform: scale(1.2);
+}
+
+.account-info{
+    display: flex;
+    flex-direction: row;
+    padding: 6.5rem;
+}
+
+
+
+.avatar-icon-and-btn{
+    display: flex;
+    flex-direction: column;
+}
+
+.exit-btn{
+    background-color: rgba(237, 46, 46, 0.7);
+    margin-top: 3rem;
+    width: 14rem;
+    height: 4rem;
+    border-radius: 133px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border: 3px solid rgba(31, 186, 181, 0.2);
+    color:#ffffff;
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 2rem;
+    text-align: center;
+    transition: 0.6s;
+}
+
+.exit-btn:hover{
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: rgba(237, 46, 46, 0.7);
+    border: 3px solid rgba(237, 46, 46, 0.5);
+}
+
+.info-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+    max-width: 2000px;
+}
+
+.info-bar-item{
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 1.8rem;
+    color: #000;
+    text-decoration: underline;
+
+    text-underline-offset: 10px;
+
+}
+
+.zapisi-info{
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 2rem;
+    color:#000
+}
+
+.your-zapisi{
+    display: flex;
+    padding-left: 1rem;
+}
+
+.your-zapisi-info{
+    display: flex;
+    flex-direction: row;
+    margin-left: 3%;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #a71414;
+    font-family: "Inter";
+    margin-top: 1rem;
+}
+
+.info-and-zapis{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.btn-otmena{
+    margin-left: 10%;
+    width: 11rem;
+    height: 2.6rem;
+    text-align: center;
+    border-radius: 133px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    border: 3px solid rgba(31, 186, 181, 0.2);
+    margin-top: 0.8rem;
+    align-items: center;
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 1.5rem;
+    color: #1fbab5;
+    transition: 0.6s;
+}
+
+.btn-otmena:hover{
+    transform: scale(1.05);
+    background-color: #ffffff;
+    color: rgba(237, 46, 46, 0.7);
+    border: 3px solid rgba(237, 46, 46, 0.5);
+}
+
+.zapis-text {
+    font-family: "Inter";
+    align-items: center;
+    display: flex;
+    background-color: #FFFFFF;
+    border-radius: 133px;
+    margin-top: 2rem;
+    width: 14rem;
+    height: 4rem;
+    justify-content: center;
+    justify-content: space-around;
+    font-weight: 600;
+    color: #1fbab5;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border: 3px solid rgba(31, 186, 181, 0.25);
+    transition: 0.6s;
+    font-size: 1.8rem;
+}
+
+.zapis-text:hover {
+    transform: scale(1.1);
+    border: 3px solid rgba(23, 138, 134, 0.4);
+}
+
+.photo-ok{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+
+@media (max-width: 1600px){
+    * {
+        font-size: 12px;
+    }
+    .avatar-icon-and-btn {
+        align-items: center;
+    }
+    .header{
+        column-gap: 48rem;
+        justify-content: space-between;
+    }
+    .header-logo-imagee {
+        margin-right: 60px;
+    }
+    .header-logo-image {
+        margin-left: 40px;
+    }
+}
+@media (max-width: 1200px){
+    * {
+        font-size: 10px;
+    }
+    .avatar {
+        height: 180px;
+    }
+    .header-logo-image {
+        height: 88px;
+    }
+}
+@media (max-width: 992px){
+    .header{
+        column-gap: 34rem;
+    }
+    .info-bar {
+        flex-wrap: wrap;
+        width: 470px;
+    }
+    .info-bar-item {
+        margin:5px;
+        height: 33px;
+    }
+
+}
+@media (max-width: 768px){
+    * {
+        font-size: 12px;
+    }
+    .header {
+        column-gap: 16rem;
+        width: 137%;
+    }
+}
+@media (max-width: 540px){
+
+    .your-zapisi{
+        display: flex;
+        padding-left: 1rem;
+        flex-direction: column;
+    }
+    * {
+        font-size: 10px;
+    }
+    .avatar {
+        height: 165px;
+    }
+    .account-info {
+        padding: 2.5rem;
+    }
+    .header {
+        width: 193%;
+    }
+    .info-bar {
+        width: 26rem;
+        padding: 2rem;
+        display:flex;
+        flex-direction: column;
+    }
+}

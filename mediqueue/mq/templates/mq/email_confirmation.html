@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/confirm_booking.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    {% endblock %}
+    <title>Отлично!</title>
+</head>
+
+<body>
+    <section class="form-section-complete">
+        <div class="section-for-message">
+            <img src="{% static 'mq/images/emailComplete.png' %}" class="photo-ok">
+            <h1 class="booking-title">Ваша Почта подтверждена!</h1>
+            <div class="subtitle-complete">Теперь вы можете <a href="{% url 'login' %}" class="go-home-btn">авторизоваться</a> на сайте</div>
+            <a class="btn-domoi" href="/">Главная страница</a>
+        </div>
+    </section>
+</body>
+
+</html>

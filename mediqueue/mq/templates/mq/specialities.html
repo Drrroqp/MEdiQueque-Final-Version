@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors List</title>
+</head>
+<body>
+    <div class="doctors-list">
+        <h1>Список специальностей</h1>
+        <ul>
+            {% for sp in spec %}
+                <li>{{ sp.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
+

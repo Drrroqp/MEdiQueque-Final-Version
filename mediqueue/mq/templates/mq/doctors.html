@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Carme&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/doctor.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/animate.css' %}" rel="stylesheet" />
+    {% endblock %}
+    <title>Doctors List</title>
+</head>
+
+<body>
+    <div class="doc-box-raspol">
+        <div class="doc-box">
+            <h1 class="titletextdoc">Выберете врача для записи:</h1>
+            <div class="rowvibordoctor">
+                <div class="colvibordoctor">
+                    {% for sp in first_half %}
+                        <a href="{% url 'booking' sp.id %}" class="doc-a">{{ sp.name }}</a>
+                    {% endfor %}
+                </div>
+                <div class="colvibordoctor">
+                    {% for sp in second_half %}
+                        <a href="{% url 'booking' sp.id %}" class="doc-a">{{ sp.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <a class="header-back-icon wow bounceInRight" href="\">
+                <img class="header-logo-imagee" src="{% static 'mq/images/back.png' %}" alt="">
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--
+    <div class="modal" id="my-modal">
+        <div class="modal__box">
+            <button class="modal__close-btn" id="close-my-modal-btn">
+                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                        fill="#333333" />
+                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                </svg>
+            </button>
+            <div class="titledoc">
+                <h1 class="titletextdoc">Выберете врача для записи:
+
+                    <div class="vibordoctor">
+                        <div class="rowvibordoctor">
+                            <div class="colvibordoctor">
+                                <button class="doctor1stolbik">Терапевт</button>
+                                <button class="doctor1stolbik">Гинеколог</button>
+                                <button class="doctor1stolbik">Офтальмолог</button>
+                                <button class="doctor1stolbiklower">Невролог</button>
+                            </div>
+                            <div class="colvibordoctor">
+                                <button class="doctor">Стоматолог</button>
+                                <button class="doctor">Кардиолог</button>
+                                <button class="doctor">Уролог</button>
+                                <button class="doctorlower">Дерматолог</button>
+                            </div>
+                            <div class="colvibordoctor">
+                                <button class="doctor">Психолог</button>
+                                <button class="doctor">Онколог</button>
+                                <button class="doctor">Диетолог</button>
+                                <button class="doctorlower">Рентгенолог</button>
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+-->

@@ -1,0 +1,19 @@
+{% load i18n %}
+{% blocktranslate %}
+Напоминание о записи.
+{% endblocktranslate %}
+Уважаемый(-ая), {{ patient.get_full_name }},
+{% blocktranslate %}
+Ваша запись:
+{% endblocktranslate %}
+- Врач: {{ doctor }} {{booking.doctor.cat.name}}
+- Дата: {{ booking_date }}
+- Время: {{ time_start }}
+
+{% blocktranslate %}
+Пожалуйста, не опаздывайте.
+{% endblocktranslate %}
+{% blocktranslate %}
+С уважением,
+Mediqueue
+{% endblocktranslate %}

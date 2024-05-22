@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+    font-family: "Golos Text";
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    justify-items: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, #67f6ee 25%, #67f6ee 40%, #4d82b8 85%);
+    -webkit-animation: AnimateBG 5s ease infinite;
+    animation: AnimateBG 15s ease infinite;
+}
+
+.go-home-btn {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #4d82b8;
+}
+
+@-webkit-keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-section-reset {
+    margin-top: 4rem;
+
+    height: auto;
+    width: 60rem;
+    background-color: #ffffff;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.form-section-reset-complete {
+    margin-top: 5rem;
+
+    height: auto;
+    width: 60rem;
+    background-color: #ffffff;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+.section-for-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 3rem;
+}
+
+.photo-ok {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1rem;
+}
+
+.booking-title {
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.info-shablon {
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+    text-align: center;
+}
+
+.info-shablon-er {
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+    text-align: center;
+    color: rgb(151, 16, 16);
+}
+
+.btn-domoi {
+    width: 16.5rem;
+    height: 4.5rem;
+    color: black;
+
+    border-radius: 133px;
+    border: 3px solid rgba(31, 186, 181, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1fbab5;
+    font-weight: 700;
+    font-size: 1.6rem;
+    transition: 0.6s;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.btn-domoi:hover {
+    transform: scale(1.1);
+    background-color: #1fbab5;
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.25);
+}

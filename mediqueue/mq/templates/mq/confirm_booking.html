@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/confirm_booking.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    {% endblock %}
+    <title>ConfirmBooking</title>
+</head>
+
+<body>
+    {% csrf_token %}
+    <section class="form-section">
+        <div class="section-for-message">
+            <img src="{% static 'mq/images/zapis_ok.png' %}" class="photo-ok">
+            <h1 class="booking-title">Ваша запись подтверждена!</h1>
+            <div class="info">
+                <div class="row1">
+                    <h2 class="info-shablon">Адрес:</h2>
+                    <h2 class="info-django">ул. Букирева, 15</h2>
+                </div>
+                {% for booking in bookings %}
+                <div class="row1">
+                    <h2 class="info-shablon">Время записи:</h2>
+                    <h2 class="info-django">{{ booking.booking_date }} {{ booking.time_start }}</h2>
+                </div>
+                {% endfor %}
+                <div class="row1">
+                    <h2 class="info-shablon">Врач:</h2>
+                    <h2 class="info-django">{{ selected_doctor }}</h2>
+                </div>
+            </div>
+            <div class="subtitle-booking">Отменить запись вы можете в личном кабинете</div>
+            <a class="btn-domoi" href="/">Главная страница</a>
+        </div>
+    </section>
+</body>
+
+</html>

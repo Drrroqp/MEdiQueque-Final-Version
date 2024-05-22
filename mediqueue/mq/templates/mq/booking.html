@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/booking.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    {% endblock %}
+    <title>Выбор времени и даты для записи</title>
+</head>
+
+<body>
+    <section class="header">
+        <a class="header-logo wow bounceInLeft" href="\">
+            <img class="header-logo-image" src="{% static 'mq/images/NewLogo.png' %}" alt="">
+        </a>
+    </section>
+    <div class="form-section">
+        {% if step_1 %}
+        <h1 class="title-booking">Записаться к врачу</h1>
+        <form id="dateForm" method="get" class="doctor-data-select">
+            {% csrf_token %}
+            <select id="doctorSelect" name="doctor_id" class="doc-select">
+                <option value="" disabled selected>Выберите врача</option>
+                {% for doctor in doctors %}
+                <option value="{{ doctor.id }}">{{ doctor.title }}</option>
+                {% endfor %}
+            </select>
+            <div id="dateSection">
+                <input id="datePicker" type="date" name="date"
+                    value="{% if savedDate %}{{ savedDate }}{% else %}{{ min_day_value }}{% endif %}"
+                    min="{{ min_day_value }}" max="{{ max_day_value }}">
+                <button type="submit" class="btn-data">Выбрать эту дату<img src="{% static 'mq/images/arrow-right.png' %}" class="arrow"></button>
+            </div>
+        </form>
+        {% endif %}
+
+        {% if step_2 %}
+            {% if working_hours %}
+                <div id="timeSection">
+                    <h1 class="title-booking">Выберете время</h1>
+                    <form action="{% url 'confirm_booking' %}" method="post" class="time-section">
+                        {% csrf_token %}
+                        <input type="hidden" name="cat_id" value="{{ cat_id }}">
+                        <input type="hidden" name="date" id="selectedDate" value="{{ request.GET.date }}">
+                        <input type="hidden" name="doctor_id" id="selectedDoctor" value="{{ request.GET.doctor_id }}">
+                        <select name="time_start" class="time-select-table">
+                            {% for time in working_hours %}
+                            {% if time not in appoints %}
+                            <option>{{ time }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Записаться" class="btn-zapis-final">
+                    </form>
+                </div>
+            {% else %}
+                <p>На данную дату время недоступно. Попробуйте записаться позже.</p>
+            {% endif %}
+        {% endif %}
+
+        <a class='nazad-btn' href="{% url 'specialities' %}" onclick="clearSelectedData()"><img
+                class="header-logo-imageee" src="{% static 'mq/images/back.png' %}" alt=""></a>
+    </div>
+    <script>
+        // Получаем ссылки на элементы Select
+        var firstSelect = document.getElementById('doctorSelect');
+        var secondSelect = document.getElementById('dateSection');
+    
+        // Скрываем второй Select при загрузке страницы
+        dateSection.style.display = 'none';
+    
+        // Добавляем обработчик события на изменение первого Select
+        doctorSelect.addEventListener('change', function() {
+            // Проверяем, выбрана ли опция в первом Select
+            if (firstSelect.value !== '') {
+                // Если выбрана опция, показываем второй Select
+                dateSection.style.display = 'block';
+            } else {
+                // Если не выбрана опция, скрываем второй Select
+                dateSection.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

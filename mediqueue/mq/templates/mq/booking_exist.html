@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_additional %}
+    <link type="text/css" href="{% static 'mq/css/style.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'mq/css/NoMoreZapisi.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    {% endblock %}
+    <title>Предупреждение</title>
+</head>
+
+<body>
+    <section class="form-section-no-more">
+        <div class="section-for-message">
+            <img src="{% static 'mq/images/noMoreZapisToday.jpg' %}" class="photo-ok">
+            <div class="NoMore-title">У вас уже есть запись к этому врачу на указанную дату:</div>
+            <p class="email-subtitle">Врач: {{ doctor.title }}</p>
+            <p class="email-subtitle">Дата: {{ date }}</p>
+            <p class="email-subtitle">Время: {{ existing_time }}</p>
+            <p class="email-subtitle-otmena">Вы можете отменить запись в личном кабинете.</p>
+            <a class="btn-domoi" href="\">Главная страница</a>
+        </div>
+    </section>
+</body>
+
+</html>
