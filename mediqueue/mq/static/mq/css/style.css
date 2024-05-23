@@ -811,7 +811,7 @@ a {
     height: auto;
     width: 100%;
     background-color: #E6E6E6;
-
+box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }
 
 .swiper-button-prev{
