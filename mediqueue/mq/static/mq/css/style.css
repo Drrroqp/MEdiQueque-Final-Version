@@ -93,12 +93,39 @@ main {
 
 .geo {
     display: flex;
+    padding: 0.35rem;
+}
+
+.map{
+    display: flex;
     margin-left: 8rem;
+    border-radius: 50px;
+    background-color: #ffffff;
+    border: none;
+    transition: 0.6s;
+}
+
+.map:hover{
+    transform: scale(1.1);
+    background-color: #eeeeee;
 }
 
 .phone {
     display: flex;
+    padding: 0.35rem;
+}
+
+.call{
+    display: flex;
     margin-left: 8rem;
+    border-radius: 50px;
+    background-color: #ffffff;
+    border: none;
+    transition: 0.6s;
+}
+.call:hover{
+    transform: scale(1.1);
+    background-color: #eeeeee;
 }
 
 .aboutcontainer {
@@ -221,11 +248,11 @@ main {
 
 .titleinfo1 {
     font-weight: 400;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     text-align: center;
     color: black;
     padding: 0.5rem;
-    margin-top: 1rem;
+
 }
 
 .subtitleinfo1 {
@@ -512,7 +539,29 @@ main {
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.10);
 }
 
+.textsettings-btn-reviews{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1rem;
+}
 
+.reviews{
+    background-color: #fcfcfc;
+    border: 3px solid rgba(28, 124, 214, 0.25);
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1.7rem;
+    border-radius: 50px;
+    width: 12rem;
+    transition: 0.6s;
+}
+
+.reviews:hover{
+    transform: scale(1.1);
+    background-color: #fafafa;
+}
 
 .registartion-box1 {
     width: 40rem;
@@ -905,6 +954,7 @@ a {
     color: #7c6e6e;
 }
 
+
 .btn-slide-info{
     border: 2px solid rgba(28, 124, 214, 0.20);
     width: 14rem;
@@ -950,7 +1000,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     /* Центрируем слайдер по горизонтали */
-    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+background-color:  rgba(255, 255, 255, 0.4);
     /* Установите цвет фона, например, белый */
     padding: 20px;
     /* Добавьте внутренние отступы для контента внутри слайдера */
@@ -958,6 +1008,7 @@ a {
     /* Установите желаемый радиус скругления */
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border: 2px solid rgba(0, 0, 0, .1);
+
 }
 
 .slick-next,
@@ -1113,6 +1164,7 @@ a {
     * {
         font-size: 8px;
     }
+
     a {
         font-size: 14px;
     }
@@ -1238,7 +1290,9 @@ a {
     .slider-doctors{
         display:none;
     }
-
+    .slider-dots{
+        display: none;
+    }
 }
 
 @media (max-width: 540px) {
