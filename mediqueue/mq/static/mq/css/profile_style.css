@@ -100,8 +100,8 @@
     font-family: "Inter";
     font-size: 1.8rem;
     color: #000;
-    text-decoration: underline;
-
+    text-decoration: underline solid 3px;
+    text-decoration-color: rgba(7, 88, 163, 0.25);
     text-underline-offset: 10px;
 
 }
@@ -216,7 +216,7 @@
         column-gap: 48rem;
         justify-content: space-between;
     }
-    .header-logo-imagee {
+    .header-back-icon {
         margin-right: 60px;
     }
     .header-logo-image {
@@ -224,6 +224,7 @@
     }
 }
 @media (max-width: 1200px){
+
     * {
         font-size: 10px;
     }
@@ -232,6 +233,9 @@
     }
     .header-logo-image {
         height: 88px;
+    }
+    .header-back-icon {
+        display: none;
     }
 }
 @media (max-width: 992px){
@@ -246,7 +250,9 @@
         margin:5px;
         height: 33px;
     }
-
+    .header-back-icon {
+        display: none;
+    }
 }
 @media (max-width: 768px){
     * {
@@ -255,6 +261,17 @@
     .header {
         column-gap: 16rem;
         width: 137%;
+    }
+    .your-zapisi{
+        display: flex;
+        padding-left: 1rem;
+        flex-direction: column;
+    }
+    .your-zapisi-info{
+        font-size: 12px;
+    }
+    .header-back-icon {
+        display: none;
     }
 }
 @media (max-width: 540px){
@@ -281,5 +298,11 @@
         padding: 2rem;
         display:flex;
         flex-direction: column;
+    }
+    .header-back-icon {
+        display: none;
+    }
+    .header-logo{
+        margin-left: 15.5rem;
     }
 }
