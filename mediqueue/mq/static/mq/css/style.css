@@ -725,6 +725,13 @@ input[type="text"],
     padding-top: 4rem;
     padding-left: 3rem;
     padding-right: 3rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .subtitle-1 {
@@ -733,6 +740,13 @@ input[type="text"],
     font-size: 1.6rem;
     text-align: center;
     padding: 1rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 a {
@@ -919,11 +933,11 @@ a {
     margin-left: auto;
     margin-right: auto;
     /* Центрируем слайдер по горизонтали */
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #f0f0f0, #ffffff);
     /* Установите цвет фона, например, белый */
     padding: 20px;
     /* Добавьте внутренние отступы для контента внутри слайдера */
-    border-radius: 90px;
+    border-radius: 60px;
     /* Установите желаемый радиус скругления */
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border: 2px solid rgba(0, 0, 0, .1);
