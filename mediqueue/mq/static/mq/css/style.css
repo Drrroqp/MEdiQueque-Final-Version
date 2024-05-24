@@ -40,7 +40,7 @@
 main {
     display: flex;
     flex-direction: column;
-    width: 100rem;
+    width: 100%;
 
 }
 .main-con{
@@ -107,7 +107,7 @@ main {
 
 .map:hover{
     transform: scale(1.1);
-    background-color: #eeeeee;
+
 }
 
 .phone {
@@ -125,7 +125,7 @@ main {
 }
 .call:hover{
     transform: scale(1.1);
-    background-color: #eeeeee;
+
 }
 
 .aboutcontainer {
@@ -811,7 +811,7 @@ a {
     height: auto;
     width: 100%;
     background-color: #E6E6E6;
-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+
 }
 
 .swiper-button-prev{
@@ -993,6 +993,9 @@ box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     font-weight: 500;
 }
 
+.reviews-info{
+width:560px;height:800px;overflow:hidden;position:relative;
+}
 .slick-slider-container {
     max-width: 30rem;
     /* Установите желаемую максимальную ширину слайдера */
@@ -1000,7 +1003,7 @@ box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     margin-left: auto;
     margin-right: auto;
     /* Центрируем слайдер по горизонтали */
-background-color:  rgba(255, 255, 255, 0.4);
+background-color:  #ffffff;
     /* Установите цвет фона, например, белый */
     padding: 20px;
     /* Добавьте внутренние отступы для контента внутри слайдера */
@@ -1067,6 +1070,13 @@ background-color:  rgba(255, 255, 255, 0.4);
 .icon-tg:hover{
     transform: scale(1.2);
 }
+
+@media (min-width: 1601px){
+    .aboutcontainer{
+        width: 100rem;
+    }
+}
+
 @media (max-width: 1600px) {
     * {
         font-size:13px;
@@ -1164,7 +1174,9 @@ background-color:  rgba(255, 255, 255, 0.4);
     * {
         font-size: 8px;
     }
-
+    .topnav{
+        width: 100rem;
+    }
     a {
         font-size: 14px;
     }
@@ -1224,6 +1236,23 @@ background-color:  rgba(255, 255, 255, 0.4);
     * {
          font-size: 8px;
     }
+    .navuphead{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .reviews-info{
+        width:300px;height:800px;
+        }
+    .map{
+        margin-left: -2rem;
+    }
+
+    .call{
+        margin-left: -2rem;
+    }
+
     .bottomnuv {
         display: flex;
         flex-direction: row;
@@ -1239,11 +1268,9 @@ background-color:  rgba(255, 255, 255, 0.4);
         display:none;
     }
     .geo {
-        margin-left: 2rem;
         margin-top: 0.5rem;
     }
     .phone {
-        margin-left: 3rem;
         margin-top: 0.5rem;
     }
     .bottomnuv {
@@ -1267,7 +1294,7 @@ background-color:  rgba(255, 255, 255, 0.4);
     }
     .rowlbockinfo {
         width: 89rem;
-        margin-left: 50px;
+        margin-left: 42px;
         flex-wrap: wrap;
     }
     .columblockinfo2 {
@@ -1293,13 +1320,18 @@ background-color:  rgba(255, 255, 255, 0.4);
     .slider-dots{
         display: none;
     }
+    .topnav{
+        width: 96rem;
+    }
 }
 
 @media (max-width: 540px) {
     * {
          font-size: 8px;
     }
-
+.reviews-info{
+        width:200px;height:600px;
+        }
     .logo-bukvi{
         margin-top: 1.7rem;
         margin-right: 1rem;
@@ -1358,4 +1390,109 @@ background-color:  rgba(255, 255, 255, 0.4);
     .logo{
         margin-left: 0.5rem;
     }
+    .topnav{
+        width: 96rem;
+    }
+    .navuphead{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .map{
+        margin-left: -2rem;
+    }
+
+    .call{
+        margin-left: -2rem;
+    }
 }
+
+@media (max-width: 480px) {
+    .navuphead{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .map{
+        margin-left: -2rem;
+    }
+
+    .call{
+        margin-left: -2rem;
+    }
+    .logo-bukvi{
+        font-size: 2rem;
+    }
+    .logo{
+        height: 5rem;
+    }
+    .nav-item{
+        font-size: 2rem;
+        margin: 1rem;
+    }
+    .acc{
+        font-size: 2.5rem;
+    }
+    .exit{
+        font-size: 2.5rem;
+    }
+    .reviews-block{
+        display: none;
+    }
+
+    .rowlbockinfo {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-left: 0px;
+    }
+    .topnav{
+        width: 46rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .navuphead{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .map{
+        margin-left: -2rem;
+    }
+
+    .call{
+        margin-left: -2rem;
+    }
+    .logo-bukvi{
+        font-size: 2rem;
+    }
+    .logo{
+        height: 5rem;
+    }
+    .nav-item{
+        font-size: 2rem;
+        margin: 1rem;
+    }
+    .acc{
+        font-size: 2.5rem;
+    }
+    .exit{
+        font-size: 2.5rem;
+    }
+    .reviews-block{
+        display: none;
+    }
+
+    .rowlbockinfo {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-left: 0px;
+    }
+    .topnav{
+        width: 45rem;
+    }
+}
+
